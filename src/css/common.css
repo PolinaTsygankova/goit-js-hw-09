@@ -16,3 +16,22 @@ img {
   display: block;
   max-width: 100%;
 }
+
+button[data-start] {
+  margin-right: 15px;
+}
+
+button {
+  font-size: 20px;
+  padding: 15px 20px;
+  background-color: #fafafa;
+  border-color: #dddddd;
+}
+
+.buttons-wrapper {
+  height: 650px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
