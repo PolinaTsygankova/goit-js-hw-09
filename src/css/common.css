@@ -28,6 +28,10 @@ button {
   border-color: #dddddd;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 .buttons-wrapper {
   height: 650px;
 

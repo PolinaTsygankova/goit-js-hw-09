@@ -3,10 +3,6 @@ const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 let timerId = null;
 
-startBtn.setAttribute('disabled', '');
-console.log(startBtn);
-console.log('message');
-
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
@@ -14,21 +10,24 @@ function getRandomHexColor() {
 }
 
 function onStartBtn() {
-  //   if (stopBtn.hasAttribute('disabled')) {
-  stopBtn.removeAttribute('disabled');
+  if (stopBtn.hasAttribute('disabled')) {
+    stopBtn.removeAttribute('disabled');
+    startBtn.setAttribute('disabled', '');
 
-  console.log('Таймер запущено');
-  timerId = setInterval(() => {
-    body.style.backgroundColor = `${getRandomHexColor()}`;
-  }, 1000);
+    console.log('Таймер запущено');
+    timerId = setInterval(() => {
+      body.style.backgroundColor = `${getRandomHexColor()}`;
+    }, 1000);
+  }
 }
-// }
 
 function onStopBtn() {
-  //   if (startBtn.hasAttribute('disabled')) {
-  //   }
-  clearInterval(timerId);
-  console.log('Таймер зупинено');
+  if (startBtn.hasAttribute('disabled')) {
+    startBtn.removeAttribute('disabled');
+    stopBtn.setAttribute('disabled', '');
+    clearInterval(timerId);
+    console.log('Таймер зупинено');
+  }
 }
 
 startBtn.addEventListener('click', onStartBtn);
