@@ -39,3 +39,31 @@ button:disabled {
   justify-content: center;
   align-items: center;
 }
+
+.timer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field:not(:last-child) {
+  margin-right: 30px;
+}
+
+span[class='value'] {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+span[class='label'] {
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
