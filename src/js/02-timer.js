@@ -3,6 +3,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
 const startBtn = document.querySelector('button[data-start]');
+const timerInput = document.querySelector('#datetime-picker');
+
 const timerRefs = {
   textDays: document.querySelector('span[data-days]'),
   textHours: document.querySelector('span[data-hours]'),
@@ -28,6 +30,7 @@ const options = {
       function onStartBtn() {
         updateInterface();
         startBtn.setAttribute('disabled', true);
+        timerInput.setAttribute('disabled', true);
       }
     }
     function updateInterface() {
@@ -41,6 +44,7 @@ const options = {
         if (timerDate <= 0) {
           clearInterval(timerId);
           startBtn.removeAttribute('disabled');
+          timerInput.removeAttribute('disabled');
         } else {
           const resultTime = convertMs(timerDate);
 
