@@ -27,6 +27,7 @@ const options = {
 
       function onStartBtn() {
         updateInterface();
+        startBtn.setAttribute('disabled', true);
       }
     }
     function updateInterface() {
@@ -36,10 +37,10 @@ const options = {
 
       function countTime() {
         const timerDate = settedDate - Date.now();
-        console.log(timerDate);
 
         if (timerDate <= 0) {
           clearInterval(timerId);
+          startBtn.removeAttribute('disabled');
         } else {
           const resultTime = convertMs(timerDate);
 
