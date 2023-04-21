@@ -12,19 +12,24 @@ let finalDelay = 0;
 
 function onSubmitBtn(e) {
   e.preventDefault();
+
   const delayInpValue = Number(refs.delayInp.value);
   const stepInpValue = Number(refs.stepInp.value);
   const amountInpValue = Number(refs.amountInp.value);
-  for (let i = 1; i <= amountInpValue; i += 1) {
-    if (i === 1) {
-      finalDelay += delayInpValue;
-      createPromise(i, finalDelay);
-    } else {
-      finalDelay += stepInpValue;
-      createPromise(i, finalDelay);
+  if (delayInpValue < 0 || stepInpValue < 0 || amountInpValue <= 0) {
+    Notiflix.Notify.warning('Please write positive values!');
+  } else {
+    for (let i = 1; i <= amountInpValue; i += 1) {
+      if (i === 1) {
+        finalDelay += delayInpValue;
+        createPromise(i, finalDelay);
+      } else {
+        finalDelay += stepInpValue;
+        createPromise(i, finalDelay);
+      }
     }
+    finalDelay = 0;
   }
-  finalDelay = 0;
 }
 
 function createPromise(position, delay) {
